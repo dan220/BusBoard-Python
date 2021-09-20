@@ -16,8 +16,20 @@ class Buses():
         all = departures['all']
         count = 0
         for buses in all:
-            for element in buses:
-                print(element, '->', buses[element])
+            for key in buses:
+                if key == 'line':
+                    line = buses[key]
+                if key == 'direction':
+                    direction = buses[key]
+                if key == 'expected':
+                    expected_dict = buses[key]
+                    for sub_key in expected_dict:
+                        if sub_key == 'arrival':
+                            arrival_dict = expected_dict['arrival']
+                            for sub_sub_key in arrival_dict:
+                                if sub_sub_key == 'time':
+                                    time = arrival_dict['time']
             count += 1
+            print(f'{line} {direction} {time} ')
             if count == 5:
                 break

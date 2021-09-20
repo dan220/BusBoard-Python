@@ -5,7 +5,7 @@ from buses import Buses
 
 def main():
     print("Welcome to BusBoard.")
-    atocode = input("Please input the bus stop atcode: ")
+    atocode = input("Please input the bus stop atocode: ")
     buses = Buses(atocode)
     buses.update_timetable()
     buses_text= buses.get_buses()
