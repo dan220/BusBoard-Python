@@ -1,15 +1,9 @@
 import requests
 
 class Buses():
-    time_table = None
 
-    def __init__(self,atocode):
-        self.atocode = atocode
-
-    def update_timetable(self):
-        time_table = requests.get(
-            'https://transportapi.com/v3/uk/bus/stop/' + self.atocode + '/live.json?app_id=d469280a&app_key=004f69bc55849dfc0066c1c160a04424&group=no&limit=5')
-        self.time_table = time_table.json()
+    def __init__(self,time_table):
+        self.time_table = time_table
 
     def get_buses(self):
         departures = self.time_table['departures']
@@ -33,3 +27,31 @@ class Buses():
             print(f'{line} {direction} {time} ')
             if count == 5:
                 break
+
+
+    def get_buses2(self):
+        departures = self.time_table['departures']
+        if len(departures) == 0:
+            print('No buses for this stop')
+        all = departures['all']
+        if len(all) > 5:
+            for i in range(1,6):
+                bus = all[i]
+                line = bus['line']
+                direction = bus['direction']
+                expected = bus['expected']
+                arrival_dict = expected['arrival']
+                time = arrival_dict['time']
+                print(f'{line} {direction} {time} ')
+        else:
+            for i in range(1,len(all)):
+                bus = all[i]
+                line = bus['line']
+                direction = bus['direction']
+                expected = bus['expected']
+                arrival_dict = expected['arrival']
+                time = arrival_dict['time']
+                print(f'{line} {direction} {time} ')
+
+
+
