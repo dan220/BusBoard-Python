@@ -30,12 +30,13 @@ class Buses():
 
 
     def get_buses2(self):
+        print(self.time_table)
         departures = self.time_table['departures']
         if len(departures) == 0:
             print('No buses for this stop')
         all = departures['all']
         if len(all) > 5:
-            for i in range(1,6):
+            for i in range(0,5):
                 bus = all[i]
                 line = bus['line']
                 direction = bus['direction']
@@ -44,7 +45,7 @@ class Buses():
                 time = arrival_dict['time']
                 print(f'{line} {direction} {time} ')
         else:
-            for i in range(1,len(all)):
+            for i in range(0,len(all)):
                 bus = all[i]
                 line = bus['line']
                 direction = bus['direction']
