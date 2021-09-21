@@ -30,7 +30,7 @@ class Buses():
 
 
     def get_buses2(self):
-        print(self.time_table)
+        print(f'Stop -> {self.time_table["name"]}')
         departures = self.time_table['departures']
         if len(departures) == 0:
             print('No buses for this stop')

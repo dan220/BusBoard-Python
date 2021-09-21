@@ -22,8 +22,6 @@ def main():
     bus_stops_dict = bus_stops_dict.json()
     first_atcocode, second_atcocode = bus_stops.get_atocode(bus_stops_dict)
 
-
-
     return_buses(first_atcocode)
     return_buses(second_atcocode)
 
