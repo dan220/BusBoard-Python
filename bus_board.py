@@ -6,7 +6,7 @@ class Bus_board():
     def __init__(self):
         pass
 
-    def print_board(self, atcocode ):
+    def print_board(self, atcocode):
         self.buses.get_buses(atcocode)
         bus_list = self.buses.get_bus_information()
         print(f'Stop -> {self.buses.time_table["name"]}')
